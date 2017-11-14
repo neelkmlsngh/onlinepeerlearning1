@@ -29,7 +29,7 @@
   TogetherJSConfig_on = {
     ready: function() {
       var data = sessionStorage.getItem('togetherjs-session.status');
-      var link = 'https://192.168.252.211:8080/#/main&togetherjs=';
+      var link = $('.togetherjs-share-link').val();
       var dataObj = JSON.parse(data);
 
      $('#togetherjs-dock').hide();
@@ -37,7 +37,7 @@
       $('#togetherjs-share').hide();
 
      window.angularComponentRef.zone.run(() => {
-        window.angularComponentRef.component.methodToExport(link + dataObj.shareId);
+        window.angularComponentRef.component.methodToExport(link);
       });
 
      var consoleHolder = console;
